@@ -11,11 +11,18 @@ const PostItem = ({
   authorID,
   createdAt,
 }) => {
+  // Remove HTML tags from description
+  const cleanDescription = description.replace(/(<([^>]+)>)/gi, "");
+
+  // Truncate the cleaned description if it’s too long
   const shortDescription =
-    description.length > 145
-      ? description.substr(0, 145) + "...."
-      : description;
+    cleanDescription.length > 145
+      ? cleanDescription.substr(0, 145) + "...."
+      : cleanDescription;
+
+  // Truncate title if it’s too long
   const postTitle = title.length > 145 ? title.substr(0, 145) + "...." : title;
+
   return (
     <article className="post">
       <div className="post__thumbnail">
@@ -28,7 +35,7 @@ const PostItem = ({
         <Link to={`/posts/${postID}`}>
           <h3>{postTitle}</h3>
         </Link>
-        {shortDescription}
+        <p>{shortDescription}</p>
         <div className="post__footer">
           <PostAuthor authorID={authorID} createdAt={createdAt} />
           <Link to={`/posts/categories/${category}`} className="btn category">
