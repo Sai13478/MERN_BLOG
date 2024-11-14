@@ -20,18 +20,14 @@ import Dashboard from "./pages/Dashboard";
 import Logout from "./pages/Logout";
 import DeletePost from "./pages/DeletePost";
 import UserProvider from "./context/userContext";
-import { DarkModeProvider } from "./context/DarkModeContext";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <UserProvider>
-        <DarkModeProvider>
-          {" "}
-          {/* Wrap with DarkModeProvider */}
-          <Layout />
-        </DarkModeProvider>
+        {" "}
+        <Layout />
       </UserProvider>
     ),
     errorElement: <ErrorPage />,
