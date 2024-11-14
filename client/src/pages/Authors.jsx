@@ -34,7 +34,7 @@ const Authors = () => {
     <section className="authors">
       {authors.length > 0 ? (
         <div className="container authors__container">
-          {authors.map(({ _id:id, avatar, name, posts }) => (
+          {authors.map(({ _id: id, avatar, name, posts }) => (
             <Link key={id} to={`/posts/users/${id}`} className="author">
               <div className="author__avatar">
                 <img
@@ -54,6 +54,7 @@ const Authors = () => {
       ) : (
         <h2>No users found</h2>
       )}
+      <footer />
     </section>
   );
 };
