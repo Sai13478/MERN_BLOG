@@ -54,7 +54,6 @@ const Authors = () => {
       ) : (
         <h2>No users found</h2>
       )}
-      <footer />
     </section>
   );
 };
